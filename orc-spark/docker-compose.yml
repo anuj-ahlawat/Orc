@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  spark-iceberg:
+    image: tabulario/spark-iceberg:latest
+    container_name: spark-iceberg-v2
+    volumes:
+      - ./warehouse:/home/iceberg/warehouse
+      - ./notebooks:/home/iceberg/notebooks
+    networks:
+      - iceberg_net
+    environment:
+      - SPARK_LOG_LEVEL=INFO
+    command: tail -f /dev/null
+
+  jupyter:
+    image: jupyter/pyspark-notebook:latest
+    container_name: jupyter
+    ports:
+      - "8899:8888"
+    volumes:
+      - ./notebooks:/home/jovyan/work
+      - ./warehouse:/home/jovyan/warehouse
+    environment:
+      - PYSPARK_PYTHON=python3
+      - PYSPARK_SUBMIT_ARGS=--packages org.apache.iceberg:iceberg-spark-runtime-3.3_2.12:1.4.2 pyspark-shell
+    command: >
+      start-notebook.sh --NotebookApp.token='' --NotebookApp.password='' --NotebookApp.allow_origin='*'
+    networks:
+      - iceberg_net
+    depends_on:
+      - spark-iceberg
+
+networks:
+  iceberg_net:
+    driver: bridge

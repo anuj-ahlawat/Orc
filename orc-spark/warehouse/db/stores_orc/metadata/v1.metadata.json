@@ -1,0 +1,84 @@
+{
+  "format-version" : 2,
+  "table-uuid" : "7eb61751-333e-4d12-b34c-aeb360c8428b",
+  "location" : "/home/jovyan/warehouse/db/stores_orc",
+  "last-sequence-number" : 1,
+  "last-updated-ms" : 1753251368267,
+  "last-column-id" : 4,
+  "current-schema-id" : 0,
+  "schemas" : [ {
+    "type" : "struct",
+    "schema-id" : 0,
+    "fields" : [ {
+      "id" : 1,
+      "name" : "store_id",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 2,
+      "name" : "store_name",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 3,
+      "name" : "latitude",
+      "required" : false,
+      "type" : "double"
+    }, {
+      "id" : 4,
+      "name" : "longitude",
+      "required" : false,
+      "type" : "double"
+    } ]
+  } ],
+  "default-spec-id" : 0,
+  "partition-specs" : [ {
+    "spec-id" : 0,
+    "fields" : [ ]
+  } ],
+  "last-partition-id" : 999,
+  "default-sort-order-id" : 0,
+  "sort-orders" : [ {
+    "order-id" : 0,
+    "fields" : [ ]
+  } ],
+  "properties" : {
+    "owner" : "jovyan",
+    "write.format.default" : "orc",
+    "write.parquet.compression-codec" : "zstd"
+  },
+  "current-snapshot-id" : 7439410787490776453,
+  "refs" : {
+    "main" : {
+      "snapshot-id" : 7439410787490776453,
+      "type" : "branch"
+    }
+  },
+  "snapshots" : [ {
+    "sequence-number" : 1,
+    "snapshot-id" : 7439410787490776453,
+    "timestamp-ms" : 1753251368267,
+    "summary" : {
+      "operation" : "append",
+      "spark.app.id" : "local-1753251359875",
+      "added-data-files" : "8",
+      "added-records" : "1199999",
+      "added-files-size" : "19055177",
+      "changed-partition-count" : "1",
+      "total-records" : "1199999",
+      "total-files-size" : "19055177",
+      "total-data-files" : "8",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "/home/jovyan/warehouse/db/stores_orc/metadata/snap-7439410787490776453-1-3af8fcfb-471f-47cd-80ed-77117065c37b.avro",
+    "schema-id" : 0
+  } ],
+  "statistics" : [ ],
+  "snapshot-log" : [ {
+    "timestamp-ms" : 1753251368267,
+    "snapshot-id" : 7439410787490776453
+  } ],
+  "metadata-log" : [ ]
+}
